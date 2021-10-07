@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <IncludeContentInPack>true</IncludeContentInPack>
+        <IncludeBuildOutput>false</IncludeBuildOutput>
+        <ContentTargetFolders>content</ContentTargetFolders>
+        <NoWarn>$(NoWarn);NU5110;NU5111;NU5128</NoWarn>
+        <NoPackageAnalysis>true</NoPackageAnalysis>
+        <PackageType>Template</PackageType>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <PackageVersion>0.1.0</PackageVersion>
+        <StartYear>2017</StartYear>
+        <EndYear>$([System.DateTime]::Today.Year)</EndYear>
+        <FullYear Condition="'$(StartYear)'=='$(EndYear)'">$(StartYear)</FullYear>
+        <FullYear Condition="'$(StartYear)'!='$(EndYear)'">$(StartYear)-$(EndYear)</FullYear>
+
+        <!-- Properties related to packaging -->
+        <Title>Cake templates for the .NET SDK.</Title>
+        <Authors>Patrik Svensson, Mattias Karlsson, Gary Ewan Park, Alistair Chapman, Martin Björkström, Dave Glick, Pascal Berger, Jérémie Desautels, Enrico Campidoglio, C. Augusto Proiete, Nils Andresen, and contributors</Authors>
+        <Copyright>Copyright © $(FullYear) — .NET Foundation and contributors</Copyright>
+        <Description>.NET CLI templates for Cake</Description>
+        <PackageIconUrl>https://cdn.jsdelivr.net/gh/cake-build/graphics/blob/master/png/cake-medium.png</PackageIconUrl>
+        <PackageIcon>image.png</PackageIcon>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/nils-a/Cake.Templates</PackageProjectUrl>
+        <PackageTags>cake;templates;dotnet-new</PackageTags>
+        <RepositoryUrl>https://github.com/nils-a/Cake.Templates.git</RepositoryUrl>
+        <PackageReleaseNotes>https://github.com/nils-a/Cake.Templates/releases/tag/$(Version)</PackageReleaseNotes>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="$(MSBuildThisFileDirectory)cake-medium.png" Pack="true" PackagePath="image.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="templates\**\*" Exclude="templates\**\bin\**;templates\**\obj\**;templates\**\.vs\**;templates\**\.idea\**" />
+        <Compile Remove="**\*" />
+    </ItemGroup>
+</Project>

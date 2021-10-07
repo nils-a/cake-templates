@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Cake",
+  "name": "Cake Build file",
+  "description": "Create a build file for Cake",
+  "identity": "Cake.Build.cake",
+  "groupIdentity": "Cake.Build",
+  "shortName": "cake.build",
+  "sourceName": "build.cake",
+  "defaultName": "build.cake",
+  "tags": {
+    "language": "",
+    "type": "item",
+    "platform": "Cake"
+  },
+  "classifications": [
+    "Cake",
+    "Windows",
+    "Linux",
+    "macOs"
+  ],
+  "preferNameDirectory": false
+}
